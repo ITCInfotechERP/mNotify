@@ -1,0 +1,131 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="SSOTest.controller.Detail"
+	xmlns:semantic="sap.m.semantic" xmlns:html="http://www.w3.org/1999/xhtml">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:content>
+			<ObjectHeader title="Notification ID:{NotifNo}" icon="sap-icon://notification" id="objectHeader" responsive="true">
+				<statuses>
+					<ObjectStatus class="sapUiSmallMarginBottom" text="{path : 'Priority', formatter: '.formatter.Value'}"
+						state="{path : 'Priority', formatter: '.formatter.State'}"/>
+					<ObjectStatus class="sapUiSmallMarginBottom" text="{path : 'SysStatus', formatter: '.formatter.sysStatus'}" state="Success"/>
+				</statuses><!---->
+				<attributes>
+					<ObjectAttribute text="{path : 'NotifType', formatter: '.formatter.NotificationType'}"/>
+					<ObjectAttribute title="Create Date" text="{path : 'CreatedOn', formatter: '.formatter.Date'}"/>
+				</attributes>
+			</ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
+						<content>
+							<Table id="lineItemsList" width="auto" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}"
+								busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+								<columns>
+									<Column>
+										<Text text=""/>
+									</Column>
+									<Column minScreenWidth="Phone" hAlign="End">
+										<Text text=""/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailSubject}"/>
+											<Text text="{ShortText}"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailNotif}"/>
+											<Text text="{path : 'NotifType', formatter: '.formatter.NotificationType'}"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailEquipID}"/>
+											<Link id = "eqpId" text="{Equipment}" press="onEquipmentPress"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailFunclocID}"/>
+											<Link id = "locId" text="{FunctLoc}" press = "OnLocationPress"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailStDate}"/>
+											<Text text="{path : 'Strmlfndate', formatter: '.formatter.Date'}"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailEndDate}"/>
+											<Text text="{path : 'Endmlfndate', formatter: '.formatter.Date'}"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailPriority}"/>
+											<Text text="{path : 'Priority', formatter: '.formatter.Value'}"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailStatus}"/>
+											<Text text="{path : 'SysStatus', formatter: '.formatter.sysStatus'}"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailCreateBy}"/>
+											<Text text="{CreatedBy}"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailReportBy}"/>
+											<Text text="{Reportedby}"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailDescr}"/>
+											<Text text="{Description}"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailBreak}"/>
+											<Text text="{path : 'Breakdown', formatter: '.formatter.Breakdown'}"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailMalfuncSt}"/>
+											<Text text="{parts: [{path: 'Strmlfndate'}, {path: 'Strmlfntime'}], formatter: '.formatter.MalfunDetail'}"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detailMalfuncEnd}"/>
+											<Text text="{parts: [{path: 'Endmlfndate'}, {path: 'Endmlfntime'}], formatter: '.formatter.MalfunDetail'}"/>
+										</cells>
+									</ColumnListItem>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{i18n>detaiOrderId}"/>
+											<Link id="linkOrderID" text="{Orderid}" press="onOrderPress"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://attachment" visible="flase" tooltip="{i18n>detailIconTabBarAttachments}"></IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+	</semantic:DetailPage>
+</mvc:View>

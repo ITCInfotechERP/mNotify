@@ -1,0 +1,63 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="SSOTest.controller.Master"
+	xmlns:semantic="sap.m.semantic" xmlns:html="http://www.w3.org/1999/xhtml">
+	<semantic:MasterPage id="page" title="{masterView>/title}" navButtonPress="onNavBack" showNavButton="false">
+		<semantic:subHeader>
+			<Bar id="headerBar">
+				<contentMiddle>
+					<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" width="100%"
+						search="onSearch"/>
+				</contentMiddle>
+			</Bar>
+		</semantic:subHeader>
+		<semantic:content>
+			<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>
+			<!-- For client side filtering add this to the items attribute: parameters: {operationMode: 'Client'}}" -->
+			<List id="list" items="{ path: '/NotifSet', sorter: { path: 'NotifNo', descending: false }, groupHeaderFactory: '.createGroupHeader' }"
+				busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}"
+				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingScrollToLoad="true"
+				updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
+				<infoToolbar>
+					<Toolbar active="true" id="filterBar" visible="{masterView>/isFilterBarVisible}" press="onOpenViewSettings">
+						<Title id="filterBarLabel" text="{masterView>/filterBarLabel}"/>
+					</Toolbar>
+				</infoToolbar>
+				<items>
+					<ObjectListItem id="listitem" title="NOTIF ID:{NotifNo}" press="onSelectionChange" type="Active" icon="sap-icon://notification"
+						iconDensityAware="false">
+						<firstStatus>
+							<ObjectStatus text="{path : 'Priority', formatter: '.formatter.Value'}" state="{path : 'Priority', formatter: '.formatter.State'}"/>
+						</firstStatus>
+						<secondStatus>
+							<ObjectStatus text="{SysStatus}" state="Success"/>
+						</secondStatus>
+						<attributes>
+							<ObjectAttribute text="{path : 'NotifType', formatter: '.formatter.NotificationType'}"/>
+							<ObjectAttribute text="{path : 'CreatedOn', formatter: '.formatter.Date'}"/>
+						</attributes>
+					</ObjectListItem>
+				</items>
+			</List>
+		</semantic:content>
+		<semantic:sort>
+			<semantic:SortSelect id="sort" selectedKey="{masterView>/sortBy}" change="onSort">
+				<core:Item id="masterSort2" key="sasc" text="{i18n>masterSort2}"/>
+				<core:Item id="masterSort1" key="sdesc" text="{i18n>masterSort1}"/>
+			</semantic:SortSelect>
+		</semantic:sort>
+		<semantic:filter>
+			<semantic:FilterSelect id="filter" change="onFilterChange">
+				<core:Item id="ALL" key="ALL" text="{i18n>masterFilter1}"/>
+				<core:Item id="OSNO" key="OSNO" text="{i18n>masterFilter2}"/>
+				<core:Item id="NOPR" key="NOPR" text="{i18n>masterFilter3}"/>
+				<core:Item id="NOCO" key="NOCO" text="{i18n>masterFilter4}"/>
+			</semantic:FilterSelect>
+		</semantic:filter>
+		<semantic:addAction>
+			<semantic:AddAction press="onSemanticButtonPress"/>
+		</semantic:addAction>
+		<semantic:customFooterContent>
+			<Button text="Refresh" width="80px" id="__button1" press="onRefreshButton"/>
+			<Button text="Flush" width="70px" id="__button0" press="onFlushButton"/>
+		</semantic:customFooterContent>
+	</semantic:MasterPage>
+</mvc:View>
