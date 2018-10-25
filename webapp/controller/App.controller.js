@@ -6,4 +6,5 @@ sap.ui.define([
 	return Controller.extend("SSOTest.controller.App", {
 
 	});
+	
 });
