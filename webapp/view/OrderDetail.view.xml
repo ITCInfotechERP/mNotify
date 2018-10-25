@@ -1,0 +1,73 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="SSOTest.controller.OrderDetail"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>orderDetail}" showNavButton="true" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}"
+				navButtonPress="onNavBack">
+				<content>
+					<Table id="lineItemsList" width="auto" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}"
+						busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+						<columns>
+							<Column>
+								<Text text=""/>
+							</Column>
+							<Column minScreenWidth="Phone" hAlign="End">
+								<Text text=""/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{i18n>detailOrderID}"/>
+									<Text text="{Orderid}"/>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{i18n>detailorderType}"/>
+									<Text text="{OrderType}"/>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{i18n>detailPlant}"/>
+									<Text text="{Plant}"/>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{i18n>detailBusarea}"/>
+									<Text text="{BusArea}"/>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{i18n>detailEquipment}"/>
+									<Text text="{Equipment}"/>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{i18n>detailWorkcenter}"/>
+									<Text text="{LocWkCtr}"/>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{i18n>detailStDate}"/>
+									<Text text="{path : 'StartDate', formatter: '.formatter.Date'}"/>
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{i18n>detailEndDate}"/>
+									<Text text="{path : 'FinishDate', formatter: '.formatter.Date'}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

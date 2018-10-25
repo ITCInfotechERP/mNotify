@@ -1,0 +1,56 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="SSOTest.controller.CreateNotification"
+	xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>createNotification}" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+					<f:SimpleForm id="FormDisplay354wide" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+						title="{i18n>createFormheading}" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+						columnsXL="1" columnsL="1" columnsM="1">
+						<f:content>
+							<Label text="{i18n>createnottype}" required="true"/>
+							<Select id="selnottype" autoAdjustWidth="true">
+								<items>
+									<core:Item text="Maintainence Request" key="M1"/>
+									<core:Item text="Malfunction Request" key="M2"/>
+								</items>
+							</Select>
+							<Label text="{i18n>createnotSubj}" required="true"/>
+							<Input id="subjtxt" maxLength="50" placeholder="Enter Subject"></Input>
+							<Label text="{i18n>createnotfunLoc}" required="true"/>
+							<Input id="funLoc" maxLength="50"></Input>
+							<Label text="{i18n>createnotequip}" required="true"/>
+							<Input id="equipID" maxLength="18" placeholder="Scan Equipment ID"></Input>
+							<Button id="scaneq" icon="sap-icon://bar-code" type="Emphasized" tooltip="Scan" press="onScanClick"/>
+							<Label text="{i18n>createnotPrior}" required="true"/>
+							<Select id="selprior" autoAdjustWidth="true">
+								<items>
+									<core:Item text="{i18n>createnotPriorVH}" key="Very High"/>
+									<core:Item text="{i18n>createnotPriorH}" key="High"/>
+									<core:Item text="{i18n>createnotPriorM}" key="Medium"/>
+									<core:Item text="{i18n>createnotPriorL}" key="Low"/>
+								</items>
+							</Select>
+							<Label text="{i18n>createnotReported}" required="true"/>
+							<Input id="reptxt" maxLength="50" placeholder="Enter Name"></Input>
+							<Label text="{i18n>createnotAimage}"/>
+							<Input id="aimtxt" enabled="false"></Input>
+							<Button id="camim" icon="sap-icon://camera" type="Emphasized" tooltip="Take Picture" press="onCameraClick"/>
+							<Label text="{i18n>createnotBrdown}"/>
+							<CheckBox id="bdcb" select="handleBreakdown"/>
+							<Label text="{i18n>createnotDescrip}" />
+							<TextArea id="textArea" rows="4" maxLength="120"/>
+						</f:content>
+					</f:SimpleForm>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button text="{i18n>saveBtn}" type="Emphasized" press="onSavePress"/>
+						<Button text="{i18n>cancelBtn}" press="onCancelPress"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
