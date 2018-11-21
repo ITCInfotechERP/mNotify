@@ -1,1 +1,5 @@
 /dist/
+/mobile/index.html
+/mobile/hybrid/sap-mobile-hybrid.js
+/mobile/hybrid/pulltorefresh.min.js
+/mobile/hybrid/logon.js

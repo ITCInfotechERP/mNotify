@@ -57,6 +57,7 @@
 		</semantic:addAction>
 		<semantic:customFooterContent>
 			<Button text="Refresh" width="80px" id="__button1" press="onRefreshButton"/>
+			<Button text="Clear" width="70px" id="__button2" press="onClearButton"/>
 			<Button text="Flush" width="70px" id="__button0" press="onFlushButton"/>
 		</semantic:customFooterContent>
 	</semantic:MasterPage>

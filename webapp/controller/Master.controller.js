@@ -51,13 +51,19 @@ sap.ui.define([
 			sap.ui.getCore()._sort = 0;
 		},
 		
-		onRefreshButton: function() {
+		onRefreshButton: function () {
 			if (typeof sap.hybrid !== 'undefined') {
 				sap.hybrid.refreshStore();
 			}
 		},
-		
-		onFlushButton: function() {
+
+		onClearButton: function () {
+			if (typeof sap.hybrid !== 'undefined') {
+				sap.hybrid.clearStore();
+			}
+		},
+
+		onFlushButton: function () {
 			if (typeof sap.hybrid !== 'undefined') {
 				sap.hybrid.flushStore();
 			}
