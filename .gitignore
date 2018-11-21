@@ -3,3 +3,4 @@
 /mobile/hybrid/sap-mobile-hybrid.js
 /mobile/hybrid/pulltorefresh.min.js
 /mobile/hybrid/logon.js
+/webapp/controller/ListSelector.js

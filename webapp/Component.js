@@ -20,7 +20,7 @@ sap.ui.define([
 		init: function() {
 
 			// set the Model
-
+			this.oListSelector = new ListSelector();
 			var sUrl = "/sap/opu/odata/sap/Z_MNOTIFY_SRV/";
 			var oModel = new ODataModel(sUrl);
 			this.setModel(oModel);
